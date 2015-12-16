@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace StarWars.Characters
 {
-    class Race
+    public enum Race
     {
+
     }
 }

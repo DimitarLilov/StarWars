@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using StarWars.Contracts;
+using StarWars.GameObject;
+
 namespace StarWars.Characters
 {
-    class Player : IPlayer
+    class Player : GameObject, IPlayer
     {
         public int Health
         {
@@ -42,7 +44,7 @@ namespace StarWars.Characters
             }
         }
 
-        public PlayerRace Race
+        public Race Race
         {
             get
             {

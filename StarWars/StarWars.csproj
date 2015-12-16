@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="Characters\Enemy.cs" />
     <Compile Include="Characters\Player.cs" />
+    <Compile Include="Characters\Race.cs" />
     <Compile Include="Contracts\IAttack.cs" />
     <Compile Include="Contracts\ICharacter.cs" />
     <Compile Include="Contracts\ICollect.cs" />
@@ -53,6 +54,8 @@
     <Compile Include="Contracts\IHeal.cs" />
     <Compile Include="Contracts\IMovable.cs" />
     <Compile Include="Contracts\IPlayer.cs" />
+    <Compile Include="GameObject\GameObject.cs" />
+    <Compile Include="GameObject\Position.cs" />
     <Compile Include="StarWars.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
