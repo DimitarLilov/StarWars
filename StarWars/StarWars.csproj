@@ -52,11 +52,20 @@
     <Compile Include="Contracts\ICollect.cs" />
     <Compile Include="Contracts\ICollectible.cs" />
     <Compile Include="Contracts\IDestroyable.cs" />
+    <Compile Include="Contracts\IEffectable.cs" />
     <Compile Include="Contracts\IHeal.cs" />
     <Compile Include="Contracts\IMovable.cs" />
     <Compile Include="Contracts\IPlayer.cs" />
+    <Compile Include="Exceptions\GameExeption.cs" />
     <Compile Include="GameObject\GameObject.cs" />
     <Compile Include="GameObject\Position.cs" />
+    <Compile Include="Items\Armor.cs" />
+    <Compile Include="Items\ArmorTypes.cs" />
+    <Compile Include="Items\EffectItem.cs" />
+    <Compile Include="Items\Item.cs" />
+    <Compile Include="Items\StatItem.cs" />
+    <Compile Include="Items\Weapon.cs" />
+    <Compile Include="Items\WeaponTypes.cs" />
     <Compile Include="StarWars.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace StarWars.Contracts
 {
-    interface IEffectable
+    public interface IEffectable
     {
+        int HealthGained { get; set; }
+
+        int EnergyGained { get; set; }
     }
 }

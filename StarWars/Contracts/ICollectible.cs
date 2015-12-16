@@ -1,4 +1,5 @@
-﻿using System;
+﻿using StarWars.Items;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,6 @@ namespace StarWars.Contracts
 {
     interface ICollectible
     {
-        ItemState State { get; set; }
+        StatItem State { get; set; }
     }
 }

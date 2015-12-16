@@ -6,7 +6,16 @@ using System.Threading.Tasks;
 
 namespace StarWars.Items
 {
-    class Weapon
+    public abstract class Weapon
     {
+        private int weaponDamage;
+
+        public int WeaponDamage 
+        {
+            get { return this.weaponDamage; }
+            set { this.weaponDamage = value; } 
+        }
+
+        public WeaponTypes WeaponType { get; set; }
     }
 }

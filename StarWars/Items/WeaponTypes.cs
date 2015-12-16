@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace StarWars.Items
 {
-    class WeaponTypes
+    public enum WeaponTypes
     {
+        Unarmed,
+        Sword,
+        Staff,
+        Dagger
     }
 }

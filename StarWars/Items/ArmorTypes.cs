@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace StarWars.Items
 {
-    class ArmorTypes
+    public enum ArmorTypes
     {
+        Naked,
+        Helmet,
+        Chest,
+        Gloves,
+        Pants,
+        Boots
     }
 }
