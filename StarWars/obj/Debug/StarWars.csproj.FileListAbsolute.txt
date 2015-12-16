@@ -1,1 +1,2 @@
 C:\Users\Dani\Desktop\StarWars\StarWars\bin\Debug\StarWars.exe.config
+C:\Users\Dimitar\Documents\GitHub\StarWars\StarWars\bin\Debug\StarWars.exe.config
