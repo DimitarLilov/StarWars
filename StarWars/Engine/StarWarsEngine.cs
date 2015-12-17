@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using StarWars.Characters;
@@ -36,11 +37,17 @@ namespace StarWars.Engine
         {
             this.IsRun = true;
             PrintLogo();
+            this.renderer.WriteLine("");
             var playerName = GetPlayerName();
             var heroe = GetPlayer(playerName);
+            renderer.Clear();
             while (this.IsRun)
             {
-                PlayerControls();
+                if (Console.KeyAvailable)
+                {
+                    ConsoleKeyInfo pressedKey = Console.ReadKey(true);
+                    heroe.Move(pressedKey);
+                }
             }
         }
 
@@ -89,25 +96,7 @@ namespace StarWars.Engine
             return playerName;
         }
 
-        private static void PlayerControls()
-        {
-            if (Console.KeyAvailable)
-            {
-                ConsoleKeyInfo pressedKey = Console.ReadKey(true);
-                while (Console.KeyAvailable)
-                {
-                    Console.ReadKey(true);
-                }
-                if (pressedKey.Key == ConsoleKey.LeftArrow || pressedKey.Key == ConsoleKey.A)
-                {
-
-                }
-                else if (pressedKey.Key == ConsoleKey.RightArrow || pressedKey.Key == ConsoleKey.D)
-                {
-
-                }
-            }
-        }
+       
 
         private void PrintLogo()
         {

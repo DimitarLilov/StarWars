@@ -8,6 +8,6 @@ namespace StarWars.Contracts
 {
     public interface IMoveable
     {
-        void Move();
+        void Move(ConsoleKeyInfo pressedKey);
     }
 }
