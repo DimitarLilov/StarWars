@@ -61,7 +61,7 @@ namespace StarWars.Engine
             var playerName = GetPlayerName();
             var heroe = GetPlayer(playerName);
             renderer.Clear();
-            PrintMap(PopulateMap());
+            PrintMap(PopulateMap(),heroe);
             while (this.IsRun)
             {
                 if (Console.KeyAvailable)
@@ -127,10 +127,10 @@ namespace StarWars.Engine
             this.renderer.WriteLine(logo);
         }
 
-        private void PrintMap(char[,] map)
+        private void PrintMap(char[,] map, Player player)
         {
             map = PopulateMap();
-            map[0, 0] = 'P';
+            map[0, 0] = player.Symbol;
             StringBuilder builder = new StringBuilder();
             for (int i = 0; i < map.GetLength(0); i++)
             {
