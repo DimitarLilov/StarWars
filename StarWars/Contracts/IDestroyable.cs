@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace StarWars.Contracts
 {
-    interface IDestroyable
+    public interface IDestroyable
     {
-        int Health { get; set; }
+        int Health { get; }
     }
 }

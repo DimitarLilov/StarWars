@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace StarWars.Contracts
 {
-    interface ICollectible
+    public interface ICollectible
     {
         StatItem State { get; set; }
     }

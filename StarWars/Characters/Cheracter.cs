@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace StarWars.Characters
 {
-    class Enemy
+    class Cheracter
     {
     }
 }

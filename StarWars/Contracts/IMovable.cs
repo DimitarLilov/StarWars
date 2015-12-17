@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace StarWars.Contracts
 {
-    interface IMovable
+    public interface IMoveable
     {
-        void Move(ConsoleKeyInfo pressedKey);
+        void Move();
     }
 }

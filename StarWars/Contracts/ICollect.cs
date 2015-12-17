@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace StarWars.Contracts
 {
-    interface ICollect
+    public interface ICollect
     {
         void CollectItem(ICollectible item);
 

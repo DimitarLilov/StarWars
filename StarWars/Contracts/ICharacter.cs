@@ -7,10 +7,10 @@ using StarWars.GameObject;
 
 namespace StarWars.Contracts
 {
-    interface ICharacter : IAttack, IDestroyable
+    public interface ICharacter : IAttack, IDestroyable
     {
-        string name { get; }
-
-        Position position { get; }
+        string Name { get; }
+        Position Position { get; }
     }
 }
+

@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using StarWars.Characters.Enemy;
 
 namespace StarWars.Contracts
 {
-    interface IAttack
+    public interface IAttack
     {
-        void Attack(ICharacter enemy);
+        int Damage { get; }
+
+        void Attack(Character enemy);
     }
 }

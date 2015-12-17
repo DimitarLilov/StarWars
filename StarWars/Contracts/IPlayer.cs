@@ -7,8 +7,9 @@ using StarWars.Characters;
 
 namespace StarWars.Contracts
 {
-    interface IPlayer : ICharacter, IMovable, IHeal, ICollect
+    public interface IPlayer : ICharacter, IMoveable, ICollect
     {
-        Race Race { get; }
+        int Experience { get; }
+        void LevelUP();
     }
 }
