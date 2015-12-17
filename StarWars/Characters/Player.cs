@@ -40,19 +40,19 @@ namespace StarWars.Characters
             }
             if (pressedKey.Key == ConsoleKey.LeftArrow || pressedKey.Key == ConsoleKey.A)
             {
-                this.Position = new Position(this.Position.X-1,this.Position.Y);
+                this.Position = new Position(this.Position.X,this.Position.Y-1);
             }
             else if (pressedKey.Key == ConsoleKey.RightArrow || pressedKey.Key == ConsoleKey.D)
             {
-                this.Position = new Position(this.Position.X + 1, this.Position.Y);
+                this.Position = new Position(this.Position.X , this.Position.Y + 1);
             }
             if (pressedKey.Key == ConsoleKey.UpArrow || pressedKey.Key == ConsoleKey.W)
             {
-                this.Position = new Position(this.Position.X, this.Position.Y - 1);
+                this.Position = new Position(this.Position.X - 1, this.Position.Y );
             }
             else if (pressedKey.Key == ConsoleKey.DownArrow || pressedKey.Key == ConsoleKey.S)
             {
-                this.Position = new Position(this.Position.X, this.Position.Y + 1);
+                this.Position = new Position(this.Position.X + 1, this.Position.Y);
             }
         }
     }

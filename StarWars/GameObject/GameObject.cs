@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using StarWars.Engine;
 using StarWars.Exceptions;
 
 namespace StarWars.GameObject
@@ -16,7 +17,10 @@ namespace StarWars.GameObject
             get { return this.position; }
             set
             {
-                if (value.X < 0 || value.Y < 0)
+                if (value.X < 0
+                    || value.Y < 0
+                    || value.X >= StarWarsEngine.mapHeight
+                    || value.Y >= StarWarsEngine.mapWidth)
                 {
                     throw new ObjectOutOfMap("Object OutOf Map");
                 }

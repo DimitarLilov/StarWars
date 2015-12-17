@@ -12,12 +12,14 @@ using StarWars.GameObject;
 using StarWars.Items;
 using StarWars.UI;
 using StarWars.Characters.Enemys;
+using StarWars.Exceptions;
+
 namespace StarWars.Engine
 {
     public class StarWarsEngine
     {
-        public const int mapHeight = 50;
-        public const int mapWidth = 25;
+        public const int mapHeight = 25;
+        public const int mapWidth = 50;
         
         private const int enemiesNumber = 25;
         private static Random random = new Random();
@@ -69,7 +71,20 @@ namespace StarWars.Engine
                 {
                     renderer.Clear();
                     ConsoleKeyInfo pressedKey = Console.ReadKey(true);
-                    heroe.Move(pressedKey);
+                    
+                    try
+                    {
+                        heroe.Move(pressedKey);
+                    }
+                    catch (ObjectOutOfMap ex)
+                    {
+                        
+                    }
+                  
+                    catch (Exception ex)
+                    {
+                        
+                    }
                     PrintMap(PopulateMap(), heroe);
                 }
             }
