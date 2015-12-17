@@ -61,7 +61,7 @@ namespace StarWars.Engine
             var playerName = GetPlayerName();
             var heroe = GetPlayer(playerName);
             renderer.Clear();
-            PrintMap(heroe);
+            PrintMap(PopulateMap());
             while (this.IsRun)
             {
                 if (Console.KeyAvailable)
@@ -127,28 +127,43 @@ namespace StarWars.Engine
             this.renderer.WriteLine(logo);
         }
 
-        private void DrawMovement(Player heroe)
+        private void PrintMap(char[,] map)
         {
-
-        }
-
-        private void PrintMap(Player heroe)
-        {
+            map = PopulateMap();
+            map[0, 0] = 'P';
             StringBuilder builder = new StringBuilder();
-
             for (int i = 0; i < map.GetLength(0); i++)
             {
                 for (int j = 0; j < map.GetLength(1); j++)
                 {
-                    if (heroe.Position.X == i && heroe.Position.Y == j)
-                    {
-                        builder.Append('P');
-                    }
-                    builder.Append('.');
+                    builder.Append(map[i, j]);
                 }
                 builder.AppendLine();
             }
             Console.WriteLine(builder.ToString());
+        }
+
+        private char[,] PopulateMap()
+        {
+            map = CreateMap();
+
+            for (int i = 0; i < enemies.Count; i++)
+            {
+                map[enemies[i].Position.X, enemies[i].Position.Y] = enemies[i].Symbol;
+            }
+            return map;
+        }
+
+        private char[,] CreateMap()
+        {
+            for (int i = 0; i < map.GetLength(0); i++)
+            {
+                for (int j = 0; j < map.GetLength(1); j++)
+                {
+                    map[i, j] = '.';
+                }
+            }
+            return map;
         }
 
         private List<Character> MakeEnemy()
