@@ -4,11 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StarWars
+namespace StarWars.Exceptions
 {
-    class StarWars
+    using System;
+    public class ObjectOutOfMap : Exception
     {
-        static void Main(string[] args)
+        public ObjectOutOfMap(string massage) : base(massage)
         {
 
         }

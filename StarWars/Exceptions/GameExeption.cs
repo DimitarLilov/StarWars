@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace StarWars.Exceptions
 {
+    using System;
     public class GameExeption : Exception
     {
         public GameExeption(string message)

@@ -38,5 +38,12 @@ namespace StarWars.Items
             get { return this.intellect; }
             set { this.intellect = value; } 
         }
+
+        public void CollectItem(ICollectible item)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<ICollectible> Inventory { get; }
     }
 }

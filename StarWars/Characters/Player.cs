@@ -1,75 +1,39 @@
 ﻿using System;
 using System.Collections.Generic;
+using StarWars.Characters.Enemy;
 using StarWars.Contracts;
 using StarWars.GameObject;
+using StarWars.Items;
 
 namespace StarWars.Characters
 {
-    class Player : GameObject, IPlayer
+    public abstract class Player : Character, IPlayer
     {
-        public int Health
+        public Player(Position position, char symbol, int damage, int health, string name) : base(position, symbol, damage, health, name)
         {
-            get
-            {
-                throw new NotImplementedException();
-            }
-
-            set
-            {
-                throw new NotImplementedException();
-            }
-        }
-
-        public IEnumerable<ICollectible> Inventory
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-        }
-
-        public string name
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-        }
-
-        public Position position
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-        }
-
-        public Race Race
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-        }
-
-        public void Attack(ICharacter enemy)
-        {
-            throw new NotImplementedException();
         }
 
         public void CollectItem(ICollectible item)
         {
-            throw new NotImplementedException();
+          
         }
 
-        public void GetHealth()
-        {
-            throw new NotImplementedException();
-        }
+        IEnumerable<ICollectible> ICollect.Inventory { get; }
+       
+        public int Experience { get; private set; }
+        public int Armor { get; }
 
-        public void Move(ConsoleKeyInfo pressedKey)
+        public void LevelUP()
         {
-            throw new NotImplementedException();
+
+        }
+        public void Move()
+        {
+
+        }
+        public void AddItem(Item item)
+        {
+
         }
     }
 }
