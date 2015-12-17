@@ -61,14 +61,16 @@ namespace StarWars.Engine
             var playerName = GetPlayerName();
             var heroe = GetPlayer(playerName);
             renderer.Clear();
+            map = PopulateMap();
             PrintMap(PopulateMap(),heroe);
             while (this.IsRun)
             {
                 if (Console.KeyAvailable)
                 {
+                    renderer.Clear();
                     ConsoleKeyInfo pressedKey = Console.ReadKey(true);
                     heroe.Move(pressedKey);
-                    
+                    PrintMap(PopulateMap(), heroe);
                 }
             }
         }
@@ -130,7 +132,7 @@ namespace StarWars.Engine
         private void PrintMap(char[,] map, Player player)
         {
             map = PopulateMap();
-            map[0, 0] = player.Symbol;
+            map[player.Position.X, player.Position.Y] = player.Symbol;
             StringBuilder builder = new StringBuilder();
             for (int i = 0; i < map.GetLength(0); i++)
             {
