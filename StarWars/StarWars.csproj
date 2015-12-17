@@ -60,7 +60,8 @@
     <Compile Include="Contracts\IHeal.cs" />
     <Compile Include="Contracts\IMovable.cs" />
     <Compile Include="Contracts\IPlayer.cs" />
-    <Compile Include="Engine\Engine.cs" />
+    <Compile Include="StarWarsEngine\Engine.cs" />
+    <Compile Include="StarWarsEngine\Map.cs" />
     <Compile Include="Exceptions\GameExeption.cs" />
     <Compile Include="Exception\ObjectOutOfMap.cs" />
     <Compile Include="GameObject\GameObject.cs" />
