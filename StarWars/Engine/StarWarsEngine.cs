@@ -16,8 +16,8 @@ namespace StarWars.Engine
 {
     public class StarWarsEngine
     {
-        public const int mapHeight = 30;
-        public const int mapWidth = 30;
+        public const int mapHeight = 50;
+        public const int mapWidth = 25;
         
         private const int enemiesNumber = 25;
         private static Random random = new Random();
