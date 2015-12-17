@@ -7,16 +7,13 @@ using StarWars.GameObject;
 
 namespace StarWars.Items
 {
-
-    public abstract class Item : GameObject.GameObject
+    using StarWars.GameObject;
+    public abstract class Item : GameObject
     {
         private string weapon;
         private string armor;
 
-        public Item()
-        {
-        }
-
+       
         public string Weapon
         {
             get { return this.weapon; }
@@ -27,6 +24,10 @@ namespace StarWars.Items
         {
             get { return this.armor; }
             set { this.armor = value; }
+        }
+
+        public Item(Position position, char symbol) : base(position, symbol)
+        {
         }
     }
 }
