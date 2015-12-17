@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using StarWars.Characters.Enemy;
+using StarWars.Characters;
+using StarWars.Characters.Enemys;
 using StarWars.Items;
 using StarWars.GameObject;
 namespace StarWars.Engine

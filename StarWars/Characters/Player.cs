@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using StarWars.Characters.Enemy;
 using StarWars.Contracts;
 using StarWars.GameObject;
 using StarWars.Items;

@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using StarWars.GameObject;
+﻿using StarWars.GameObject;
 
-namespace StarWars.Characters.Enemy
+namespace StarWars.Characters.Enemys
 {
     public class Sith : Character
     {
