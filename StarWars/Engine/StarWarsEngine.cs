@@ -56,7 +56,7 @@ namespace StarWars.Engine
                 this.renderer.WriteLine("Invalid choice of Heroe");
                 choiceHeroe = this.reader.ReadLine();
             }
-            Player heroe;
+            Player heroe = null;
             switch (choiceHeroe)
             {
                 case "1":
