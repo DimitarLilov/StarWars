@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -34,6 +35,7 @@ namespace StarWars.Engine
         public void Run()
         {
             this.IsRun = true;
+            PrintLogo();
             var playerName = GetPlayerName();
             var heroe = GetPlayer(playerName);
             while (this.IsRun)
@@ -105,6 +107,13 @@ namespace StarWars.Engine
 
                 }
             }
+        }
+
+        private void PrintLogo()
+        {
+            string logo = File.ReadAllText("logo.txt");
+
+            this.renderer.WriteLine(logo);
         }
     }
 }
