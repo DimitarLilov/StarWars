@@ -8,3 +8,8 @@ C:\Users\Dimitar\Documents\GitHub\StarWars\StarWars\bin\Debug\StarWars.exe
 C:\Users\Dimitar\Documents\GitHub\StarWars\StarWars\bin\Debug\StarWars.pdb
 C:\Users\Dimitar\Documents\GitHub\StarWars\StarWars\obj\Debug\StarWars.exe
 C:\Users\Dimitar\Documents\GitHub\StarWars\StarWars\obj\Debug\StarWars.pdb
+D:\Alex\SoftUni\Game\StarWars\StarWars\bin\Debug\StarWars.exe
+D:\Alex\SoftUni\Game\StarWars\StarWars\bin\Debug\StarWars.pdb
+D:\Alex\SoftUni\Game\StarWars\StarWars\obj\Debug\StarWars.csprojResolveAssemblyReference.cache
+D:\Alex\SoftUni\Game\StarWars\StarWars\obj\Debug\StarWars.exe
+D:\Alex\SoftUni\Game\StarWars\StarWars\obj\Debug\StarWars.pdb

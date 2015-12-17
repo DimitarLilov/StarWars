@@ -11,23 +11,43 @@ using StarWars.Contracts;
 using StarWars.GameObject;
 using StarWars.Items;
 using StarWars.UI;
-
+using StarWars.Characters.Enemys;
 namespace StarWars.Engine
 {
     public class StarWarsEngine
     {
+        public const int mapHeight = 30;
+        public const int mapWidth = 30;
+        
+        private const int enemiesNumber = 25;
+        private static Random random = new Random();
+        private char[,] map = new char[mapHeight,mapWidth];
+        
         private readonly CondoleRenderer renderer;
         private readonly ConsoleReader reader;
 
-        private readonly IList<ICharacter> ceracters;
+        private readonly string[] enemyNames =
+        {
+            "Gocho",
+             "Rambo",
+             "Stamat",
+             "Pepi",
+             "Radan",
+             "Canko",
+             "DartBoyko",
+             "Semo"
+        };
+
+        private readonly List<Character> enemies = new List<Character>();
         private readonly IList<Item> items;
         private IPlayer player;
+
 
         public StarWarsEngine(ConsoleReader reader, CondoleRenderer renderer)
         {
             this.renderer = renderer;
             this.reader = reader;
-            this.ceracters = new List<ICharacter>();
+            this.enemies = MakeEnemy();
             this.items = new List<Item>();
         }
 
@@ -41,12 +61,14 @@ namespace StarWars.Engine
             var playerName = GetPlayerName();
             var heroe = GetPlayer(playerName);
             renderer.Clear();
+            PrintMap(heroe);
             while (this.IsRun)
             {
                 if (Console.KeyAvailable)
                 {
                     ConsoleKeyInfo pressedKey = Console.ReadKey(true);
                     heroe.Move(pressedKey);
+                    
                 }
             }
         }
@@ -96,13 +118,84 @@ namespace StarWars.Engine
             return playerName;
         }
 
-       
+
 
         private void PrintLogo()
         {
             string logo = File.ReadAllText("logo.txt");
 
             this.renderer.WriteLine(logo);
+        }
+
+        private void DrawMovement(Player heroe)
+        {
+
+        }
+
+        private void PrintMap(Player heroe)
+        {
+            StringBuilder builder = new StringBuilder();
+
+            for (int i = 0; i < map.GetLength(0); i++)
+            {
+                for (int j = 0; j < map.GetLength(1); j++)
+                {
+                    if (heroe.Position.X == i && heroe.Position.Y == j)
+                    {
+                        builder.Append('P');
+                    }
+                    builder.Append('.');
+                }
+                builder.AppendLine();
+            }
+            Console.WriteLine(builder.ToString());
+        }
+
+        private List<Character> MakeEnemy()
+        {
+            for (int i = 0; i < enemiesNumber; i++)
+            {
+                string enemyName = enemyNames[random.Next(0, enemyNames.Length)];
+                Position enemyPosition = new Position(random.Next(1, mapHeight), random.Next(1, mapWidth));
+                bool isEmpty = CheckPosition(enemyPosition);
+                while (isEmpty == false)
+                {
+                    enemyPosition = new Position(random.Next(1, mapHeight), random.Next(1, mapWidth));
+                    isEmpty = CheckPosition(enemyPosition);
+                }
+
+                int typePick = random.Next(1, 5);
+                switch (typePick)
+                {
+                    case 1:
+                        enemies.Add(new BountyHunter(enemyPosition, 'B', enemyName));
+                        break;
+                    case 2:
+                        enemies.Add(new Sith(enemyPosition, 'S', enemyName));
+                        break;
+                    case 3:
+                        enemies.Add(new SIthAPprentice(enemyPosition, 'A', enemyName));
+                        break;
+                    case 4:
+                        enemies.Add(new StormTrooper(enemyPosition, 'T', enemyName));
+                        break;
+                }
+            }
+            return enemies;
+        }
+
+        private bool CheckPosition(Position pos)
+        {
+            bool isEmpty = true;
+
+            for (int i = 0; i < enemies.Count; i++)
+            {
+                if (enemies[i].Position.X == pos.X && enemies[i].Position.Y == pos.Y)
+                {
+                    isEmpty = false;
+                }
+            }
+            return isEmpty;
         }
     }
 }
