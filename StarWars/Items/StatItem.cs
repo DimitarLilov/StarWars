@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using StarWars.GameObject;
 
 namespace StarWars.Items
 {
@@ -45,5 +46,9 @@ namespace StarWars.Items
         }
 
         public IEnumerable<ICollectible> Inventory { get; }
+
+        public StatItem(Position position, char symbol) : base(position, symbol)
+        {
+        }
     }
 }

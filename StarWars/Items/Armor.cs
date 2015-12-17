@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using StarWars.GameObject;
 
 namespace StarWars.Items
 {
@@ -17,5 +18,9 @@ namespace StarWars.Items
         }
 
         public ArmorTypes ArmorType { get; set; }
+
+        public Armor(Position position, char symbol) : base(position, symbol)
+        {
+        }
     }
 }

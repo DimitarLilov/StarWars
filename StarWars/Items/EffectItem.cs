@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using StarWars.GameObject;
 
 namespace StarWars.Items
 {
@@ -22,6 +23,10 @@ namespace StarWars.Items
         {
             get { return this.energyGained; }
             set { this.energyGained = value; } 
+        }
+
+        public EffectItem(Position position, char symbol) : base(position, symbol)
+        {
         }
     }
 }
