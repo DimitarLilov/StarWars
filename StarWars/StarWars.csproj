@@ -44,11 +44,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Characters\Enemys\BountyHunter.cs" />
+    <Compile Include="Characters\Enemies\BountyHunter.cs" />
     <Compile Include="Characters\Character.cs" />
-    <Compile Include="Characters\Enemys\Sith.cs" />
-    <Compile Include="Characters\Enemys\SIthAPprentice.cs" />
-    <Compile Include="Characters\Enemys\StormTrooper.cs" />
+    <Compile Include="Characters\Enemies\Sith.cs" />
+    <Compile Include="Characters\Enemies\SIthAPprentice.cs" />
+    <Compile Include="Characters\Enemies\StormTrooper.cs" />
     <Compile Include="Characters\Player.cs" />
     <Compile Include="Characters\Players\BattleDroid.cs" />
     <Compile Include="Characters\Players\GunganWarrior.cs" />

@@ -1,6 +1,6 @@
 ﻿using StarWars.GameObject;
 
-namespace StarWars.Characters.Enemys
+namespace StarWars.Characters.Enemies
 {
     public class StormTrooper : Character
     {

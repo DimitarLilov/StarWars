@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using StarWars.GameObject;
 
-namespace StarWars.Characters.Enemys
+namespace StarWars.Characters.Enemies
 {
     public class BountyHunter : Character
     {

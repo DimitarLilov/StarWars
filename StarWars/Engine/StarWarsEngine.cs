@@ -11,7 +11,7 @@ using StarWars.Contracts;
 using StarWars.GameObject;
 using StarWars.Items;
 using StarWars.UI;
-using StarWars.Characters.Enemys;
+using StarWars.Characters.Enemies;
 using StarWars.Exceptions;
 
 namespace StarWars.Engine

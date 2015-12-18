@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using StarWars.Characters;
-using StarWars.Characters.Enemys;
+using StarWars.Characters.Enemies;
 using StarWars.Items;
 using StarWars.GameObject;
 namespace StarWars.Engine
