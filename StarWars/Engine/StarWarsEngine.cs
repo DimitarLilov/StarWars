@@ -92,9 +92,18 @@ namespace StarWars.Engine
                     {
                         
                     }
-                   PrintMap(PopulateMap(), heroe as Player);
+                   PrintMap(map, heroe as Player);
                     DrowStaticInfo(heroe);
                 }
+                bool isEnemy = enemies.Any(x => x.Position.X == heroe.Position.X && x.Position.Y == heroe.Position.Y);
+                if (isEnemy)
+                {
+                    renderer.Clear();
+                    Console.WriteLine("Battle");
+                    
+                }
+                
+
             }
         }
         private  void DrowStaticInfo(IPlayer player)
