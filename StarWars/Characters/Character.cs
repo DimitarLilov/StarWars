@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using StarWars.Contracts;
 using StarWars.GameObject;
+using StarWars.UI;
 
 namespace StarWars.Characters
 {
@@ -12,12 +13,18 @@ namespace StarWars.Characters
     public abstract class Character : GameObject, ICharacter
     {
         private string name;
-        public Character(Position position, char symbol, int damage, int health, string name) : base(position, symbol)
+        private int armor;
+        private CondoleRenderer rende = new CondoleRenderer();
+        public Character(Position position, char symbol, int damage, int health, string name, int armor) : base(position, symbol)
         {
             this.Damage = damage;
             this.Health = health;
             this.Name = name;
+            this.Armor = armor;
         }
+
+        protected int Armor { get; set; }
+        
         public int Damage { get; }
 
         public int Health { get; private set; }
@@ -37,7 +44,12 @@ namespace StarWars.Characters
 
         public void Attack(Character enemy)
         {
-            enemy.Health -= this.Damage;
+            enemy.Health -= (this.Damage - this.Armor);
+            if (enemy.Health < 0)
+            {
+                enemy.Health = 0;
+            }
+            rende.WriteLine("{0} Attacked {1} for {2}", this.Name, enemy.Name, this.Damage);
         }
 
 

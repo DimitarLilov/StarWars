@@ -6,8 +6,8 @@ namespace StarWars.Characters.Enemies
     {
         private const int SIthAPprenticeDamage = 300;
         private const int SIthAPprenticeHealth = 300;
-
-        public SIthAPprentice(Position position, char symbol, string name) : base(position, symbol, SIthAPprenticeDamage, SIthAPprenticeHealth, name)
+        private const int SithApprenticeArmor = 15;
+        public SIthAPprentice(Position position, char symbol, string name) : base(position, symbol, SIthAPprenticeDamage, SIthAPprenticeHealth, name, SithApprenticeArmor)
         {
         }
     }

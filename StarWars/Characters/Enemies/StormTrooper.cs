@@ -6,7 +6,8 @@ namespace StarWars.Characters.Enemies
     {
         private const int StormTrooperDamage = 100;
         private const int StormTrooperHealth = 100;
-        public StormTrooper(Position position, char symbol, string name) : base(position, symbol, StormTrooperDamage, StormTrooperHealth, name)
+        private const int StormTrooperArmor = 30;
+        public StormTrooper(Position position, char symbol, string name) : base(position, symbol, StormTrooperDamage, StormTrooperHealth, name, StormTrooperArmor)
         {
         }
     }

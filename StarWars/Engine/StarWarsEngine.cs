@@ -69,7 +69,7 @@ namespace StarWars.Engine
 
             PrintMap(PopulateMap(), heroe as Player);
             DrowStaticInfo(heroe);
-
+      
             while (this.IsRun)
             {
                 if (Console.KeyAvailable)
@@ -98,12 +98,24 @@ namespace StarWars.Engine
                     if (isEnemy)
                     {
                         renderer.Clear();
-                        Console.WriteLine("Battle");
-                        Console.ReadLine();
+                        Console.WriteLine("Battle mode");
                         var enemy = enemies.Find(x => x.Position.X == heroe.Position.X && x.Position.Y == heroe.Position.Y);
-                        enemy.Symbol = '.';
-                        enemies[0].Attack(heroe as Player);
+                        Fight(heroe as Player, enemy);
                     }
+
+                    if ((heroe as Player).Symbol == ' ')
+                    {
+                        renderer.Clear();
+                        renderer.WriteLine("Game over");
+                        break;
+                    }
+                    else if (enemies.Count == 0)
+                    {
+                        renderer.Clear();
+                        renderer.WriteLine("You won!");
+                        break;
+                    }
+                      
                 }
             }
         }
@@ -112,13 +124,14 @@ namespace StarWars.Engine
             while (true)
             {
                 heroe.Attack(enemy);
-                if (enemy.Health <= 0)
+                if (enemy.Health == 0)
                 {
                     enemy.Symbol = '.';
+                    enemies.Remove(enemy);
                     break;
                 }
                 enemy.Attack(heroe);
-                if (heroe.Health <= 0)
+                if (heroe.Health == 0)
                 {
                     heroe.Symbol = ' ';
                     break;

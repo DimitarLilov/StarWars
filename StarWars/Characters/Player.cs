@@ -8,10 +8,9 @@ namespace StarWars.Characters
 {
     public abstract class Player : Character, IPlayer
     {
-        public Player(Position position, char symbol, int damage, int health, string name,int level,int armor) : base(position, symbol, damage, health, name)
+        public Player(Position position, char symbol, int damage, int health, string name,int level,int armor) : base(position, symbol, damage, health, name, armor)
         {
             this.Level = level;
-            this.Armor = armor;
         }
 
         public void CollectItem(ICollectible item)
