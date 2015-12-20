@@ -94,14 +94,18 @@ namespace StarWars.Engine
                     }
                    PrintMap(map, heroe as Player);
                     DrowStaticInfo(heroe);
+                    bool isEnemy = enemies.Any(x => x.Position.X == heroe.Position.X && x.Position.Y == heroe.Position.Y);
+                    if (isEnemy)
+                    {
+                        renderer.Clear();
+                        Console.WriteLine("Battle");
+                        Console.ReadLine();
+                        var enemy = enemies.Find(x => x.Position.X == heroe.Position.X && x.Position.Y == heroe.Position.Y);
+                        enemy.Symbol = '.';
+                    }
                 }
-                bool isEnemy = enemies.Any(x => x.Position.X == heroe.Position.X && x.Position.Y == heroe.Position.Y);
-                if (isEnemy)
-                {
-                    renderer.Clear();
-                    Console.WriteLine("Battle");
-                    
-                }
+               
+               
                 
 
             }
