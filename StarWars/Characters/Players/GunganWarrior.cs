@@ -12,7 +12,7 @@ namespace StarWars.Characters.Players
         private const int GunganWarriorDamage = 300;
         private const int GunganWarriorHealth = 300;
 
-        public GunganWarrior(Position position, char symbol, string name) : base(position, symbol, GunganWarriorDamage, GunganWarriorHealth, name)
+        public GunganWarrior(Position position, char symbol, string name) : base(position, symbol, GunganWarriorDamage, GunganWarriorHealth, name,0)
         {
         }
     }

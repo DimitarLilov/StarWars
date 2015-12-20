@@ -10,6 +10,7 @@ namespace StarWars.Contracts
     public interface IPlayer : ICharacter, IMoveable, ICollect
     {
         int Experience { get; }
+        int Level { get; set; }
         void LevelUP();
     }
 }

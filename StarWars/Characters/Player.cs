@@ -8,8 +8,9 @@ namespace StarWars.Characters
 {
     public abstract class Player : Character, IPlayer
     {
-        public Player(Position position, char symbol, int damage, int health, string name) : base(position, symbol, damage, health, name)
+        public Player(Position position, char symbol, int damage, int health, string name,int level) : base(position, symbol, damage, health, name)
         {
+            this.Level = level;
         }
 
         public void CollectItem(ICollectible item)
@@ -20,6 +21,7 @@ namespace StarWars.Characters
         IEnumerable<ICollectible> ICollect.Inventory { get; }
        
         public int Experience { get; private set; }
+        public int Level { get; set; }
         public int Armor { get; }
 
         public void LevelUP()

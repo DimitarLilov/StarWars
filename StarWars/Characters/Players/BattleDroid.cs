@@ -11,7 +11,7 @@ namespace StarWars.Characters.Players
     {
         private const int BattleDroidDamage = 100;
         private const int BattleDroidHealth = 100;
-        public BattleDroid(Position position, char symbol, string name) : base(position, symbol, BattleDroidDamage, BattleDroidHealth, name)
+        public BattleDroid(Position position, char symbol, string name) : base(position, symbol, BattleDroidDamage, BattleDroidHealth, name, 0)
         {
         }
     }

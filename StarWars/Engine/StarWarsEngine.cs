@@ -19,7 +19,7 @@ namespace StarWars.Engine
     public class StarWarsEngine
     {
         public const int mapHeight = 25;
-        public const int mapWidth = 50;
+        public const int mapWidth = 45;
         
         private const int enemiesNumber = 25;
         private static Random random = new Random();
@@ -61,20 +61,27 @@ namespace StarWars.Engine
             PrintLogo();
             this.renderer.WriteLine("");
             var playerName = GetPlayerName();
-            var heroe = GetPlayer(playerName);
+            IPlayer heroe = GetPlayer(playerName);
+
             renderer.Clear();
+
             map = PopulateMap();
-            PrintMap(PopulateMap(),heroe);
+            
+            PrintMap(PopulateMap(),heroe as Player);
+            DrowStaticInfo(heroe);
+
             while (this.IsRun)
             {
                 if (Console.KeyAvailable)
                 {
-                    renderer.Clear();
+                   
                     ConsoleKeyInfo pressedKey = Console.ReadKey(true);
                     
                     try
                     {
                         heroe.Move(pressedKey);
+                        heroe.Level++;
+                        renderer.Clear();
                     }
                     catch (ObjectOutOfMap ex)
                     {
@@ -85,12 +92,30 @@ namespace StarWars.Engine
                     {
                         
                     }
-                    PrintMap(PopulateMap(), heroe);
+                   PrintMap(PopulateMap(), heroe as Player);
+                    DrowStaticInfo(heroe);
                 }
             }
         }
+        private static void DrowStaticInfo(IPlayer player)
+        {
+            DrowInfo(46, 1, "Player Name: " + player.Name);
+            DrowInfo(46, 2, "Level: " + player.Level);        
+            DrowInfo(46, 3, "Health: " + player.Health);
+            DrowInfo(46, 4, "Damage: " + player.Damage);
+            DrowInfo(46, 8, "T- Storm Trooper (Damage: 100 Health: 100)");
+            DrowInfo(46, 9, "B- Bounty Hunter (Damage: 200 Health: 200)");
+            DrowInfo(46, 10, "A- Sith Apprentice (Damage: 300 Health: 300)");
+            DrowInfo(46, 11, "S- Sith (Damage: 400 Health: 400)");
+            
+        }
+        private static void DrowInfo(int x, int y, string str)
+        {
+            Console.SetCursorPosition(x, y);
+            Console.WriteLine(str);
 
-        private Player GetPlayer(string name)
+        }
+        private IPlayer GetPlayer(string name)
         {
             this.renderer.WriteLine("Choose your hero");
             this.renderer.WriteLine("1. Battle Droid (damage : 100, health : 100)");
@@ -104,7 +129,7 @@ namespace StarWars.Engine
                 this.renderer.WriteLine("Invalid choice of Heroe");
                 choiceHeroe = this.reader.ReadLine();
             }
-            Player heroe = null;
+            IPlayer heroe = null;
             switch (choiceHeroe)
             {
                 case "1":

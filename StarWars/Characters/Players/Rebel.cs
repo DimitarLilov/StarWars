@@ -11,7 +11,7 @@ namespace StarWars.Characters.Players
     {
         private const int RebelDamage = 200;
         private const int RebelHealth = 200;
-        public Rebel(Position position, char symbol, string name) : base(position, symbol, RebelDamage, RebelHealth, name)
+        public Rebel(Position position, char symbol, string name) : base(position, symbol, RebelDamage, RebelHealth, name,0)
         {
         }
     }
