@@ -97,31 +97,32 @@ namespace StarWars.Engine
                 }
             }
         }
-        private static void DrowStaticInfo(IPlayer player)
+        private  void DrowStaticInfo(IPlayer player)
         {
             DrowInfo(46, 1, "Player Name: " + player.Name);
             DrowInfo(46, 2, "Level: " + player.Level);        
             DrowInfo(46, 3, "Health: " + player.Health);
             DrowInfo(46, 4, "Damage: " + player.Damage);
+            DrowInfo(46, 5, "Damage: " + player.Armor);
             DrowInfo(46, 8, "T- Storm Trooper (Damage: 100 Health: 100)");
             DrowInfo(46, 9, "B- Bounty Hunter (Damage: 200 Health: 200)");
             DrowInfo(46, 10, "A- Sith Apprentice (Damage: 300 Health: 300)");
             DrowInfo(46, 11, "S- Sith (Damage: 400 Health: 400)");
             
         }
-        private static void DrowInfo(int x, int y, string str)
+        private  void DrowInfo(int x, int y, string str)
         {
             Console.SetCursorPosition(x, y);
-            Console.WriteLine(str);
+            this.renderer.WriteLine(str);
 
         }
         private IPlayer GetPlayer(string name)
         {
             this.renderer.WriteLine("Choose your hero");
-            this.renderer.WriteLine("1. Battle Droid (damage : 100, health : 100)");
-            this.renderer.WriteLine("2. Rebel (damage : 200, health : 200)");
-            this.renderer.WriteLine("3. Gungan Warrior (damage : 300, health : 300)");
-            this.renderer.WriteLine("4. Jedi (damage : 400, health : 400)");
+            this.renderer.WriteLine("1. Battle Droid (damage : 100, health : 100, armor : 30)");
+            this.renderer.WriteLine("2. Rebel (damage : 200, health : 200, armor : 30)");
+            this.renderer.WriteLine("3. Gungan Warrior (damage : 300, health : 300, armor : 30)");
+            this.renderer.WriteLine("4. Jedi (damage : 400, health : 400, armor : 30)");
             string choiceHeroe = this.reader.ReadLine();
             string[] numberHeroes = { "1", "2", "3", "4" };
             while (!numberHeroes.Contains(choiceHeroe))
@@ -182,7 +183,7 @@ namespace StarWars.Engine
                 }
                 builder.AppendLine();
             }
-            Console.WriteLine(builder.ToString());
+            renderer.WriteLine(builder.ToString());
         }
 
         private char[,] PopulateMap()

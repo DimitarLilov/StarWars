@@ -11,6 +11,7 @@ namespace StarWars.Contracts
     {
         int Experience { get; }
         int Level { get; set; }
+        int Armor { get; set; }
         void LevelUP();
     }
 }
