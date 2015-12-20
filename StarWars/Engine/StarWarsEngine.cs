@@ -128,6 +128,7 @@ namespace StarWars.Engine
                 {
                     enemy.Symbol = '.';
                     enemies.Remove(enemy);
+                    renderer.WriteLine("{0} is dead", enemy.Name);
                     break;
                 }
                 enemy.Attack(heroe);
