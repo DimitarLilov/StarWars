@@ -18,12 +18,12 @@ namespace StarWars.Engine
 {
     public class StarWarsEngine
     {
-        public const int mapHeight = 25;
+        public const int mapHeight = 15;
         public const int mapWidth = 45;
         
         private const int enemiesNumber = 25;
         private static Random random = new Random();
-        private char[,] map = new char[mapHeight,mapWidth];
+        private char[,] map = new char[mapHeight, mapWidth];
         
         private readonly CondoleRenderer renderer;
         private readonly ConsoleReader reader;
@@ -74,14 +74,14 @@ namespace StarWars.Engine
             {
                 if (Console.KeyAvailable)
                 {
-                   
+
+                    renderer.Clear();
                     ConsoleKeyInfo pressedKey = Console.ReadKey(true);
                     
                     try
                     {
                         heroe.Move(pressedKey);
-                        heroe.Level++;
-                        renderer.Clear();
+
                     }
                     catch (ObjectOutOfMap ex)
                     {
@@ -174,11 +174,11 @@ namespace StarWars.Engine
             map = PopulateMap();
             map[player.Position.X, player.Position.Y] = player.Symbol;
             StringBuilder builder = new StringBuilder();
-            for (int i = 0; i < map.GetLength(0); i++)
+            for (int row = 0; row < map.GetLength(0); row++)
             {
-                for (int j = 0; j < map.GetLength(1); j++)
+                for (int col = 0; col < map.GetLength(1); col++)
                 {
-                    builder.Append(map[i, j]);
+                    builder.Append(map[row, col]);
                 }
                 builder.AppendLine();
             }
@@ -198,11 +198,11 @@ namespace StarWars.Engine
 
         private char[,] CreateMap()
         {
-            for (int i = 0; i < map.GetLength(0); i++)
+            for (int row = 0; row < mapHeight; row++)
             {
-                for (int j = 0; j < map.GetLength(1); j++)
+                for (int col = 0; col < mapWidth; col++)
                 {
-                    map[i, j] = '.';
+                    map[row, col] = '.';
                 }
             }
             return map;
