@@ -20,11 +20,11 @@ namespace StarWars.Engine
     {
         public const int mapHeight = 15;
         public const int mapWidth = 45;
-        
+
         private const int enemiesNumber = 25;
         private static Random random = new Random();
         private char[,] map = new char[mapHeight, mapWidth];
-        
+
         private readonly CondoleRenderer renderer;
         private readonly ConsoleReader reader;
 
@@ -66,8 +66,8 @@ namespace StarWars.Engine
             renderer.Clear();
 
             map = PopulateMap();
-            
-            PrintMap(PopulateMap(),heroe as Player);
+
+            PrintMap(PopulateMap(), heroe as Player);
             DrowStaticInfo(heroe);
 
             while (this.IsRun)
@@ -77,7 +77,7 @@ namespace StarWars.Engine
 
                     renderer.Clear();
                     ConsoleKeyInfo pressedKey = Console.ReadKey(true);
-                    
+
                     try
                     {
                         heroe.Move(pressedKey);
@@ -85,14 +85,14 @@ namespace StarWars.Engine
                     }
                     catch (ObjectOutOfMap ex)
                     {
-                        
+
                     }
-                  
+
                     catch (Exception ex)
                     {
-                        
+
                     }
-                   PrintMap(map, heroe as Player);
+                    PrintMap(map, heroe as Player);
                     DrowStaticInfo(heroe);
                     bool isEnemy = enemies.Any(x => x.Position.X == heroe.Position.X && x.Position.Y == heroe.Position.Y);
                     if (isEnemy)
@@ -102,18 +102,34 @@ namespace StarWars.Engine
                         Console.ReadLine();
                         var enemy = enemies.Find(x => x.Position.X == heroe.Position.X && x.Position.Y == heroe.Position.Y);
                         enemy.Symbol = '.';
+                        enemies[0].Attack(heroe as Player);
                     }
                 }
-               
-               
-                
-
             }
         }
-        private  void DrowStaticInfo(IPlayer player)
+        private void Fight (Player heroe, Character enemy)
+        {
+            while (true)
+            {
+                heroe.Attack(enemy);
+                if (enemy.Health <= 0)
+                {
+                    enemy.Symbol = '.';
+                    break;
+                }
+                enemy.Attack(heroe);
+                if (heroe.Health <= 0)
+                {
+                    heroe.Symbol = ' ';
+                    break;
+                }
+            }
+        }
+
+        private void DrowStaticInfo(IPlayer player)
         {
             DrowInfo(46, 1, "Player Name: " + player.Name);
-            DrowInfo(46, 2, "Level: " + player.Level);        
+            DrowInfo(46, 2, "Level: " + player.Level);
             DrowInfo(46, 3, "Health: " + player.Health);
             DrowInfo(46, 4, "Damage: " + player.Damage);
             DrowInfo(46, 5, "Damage: " + player.Armor);
@@ -121,9 +137,9 @@ namespace StarWars.Engine
             DrowInfo(46, 9, "B- Bounty Hunter (Damage: 200 Health: 200)");
             DrowInfo(46, 10, "A- Sith Apprentice (Damage: 300 Health: 300)");
             DrowInfo(46, 11, "S- Sith (Damage: 400 Health: 400)");
-            
+
         }
-        private  void DrowInfo(int x, int y, string str)
+        private void DrowInfo(int x, int y, string str)
         {
             Console.SetCursorPosition(x, y);
             this.renderer.WriteLine(str);
