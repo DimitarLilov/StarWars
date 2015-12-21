@@ -42,7 +42,7 @@ namespace StarWars.Engine
 
         private readonly List<Character> enemies = new List<Character>();
         private readonly IList<Item> items;
-        private IPlayer player;
+        private Player player;
 
 
         public StarWarsEngine(ConsoleReader reader, CondoleRenderer renderer)
@@ -61,13 +61,13 @@ namespace StarWars.Engine
             PrintLogo();
             this.renderer.WriteLine("");
             var playerName = GetPlayerName();
-            IPlayer heroe = GetPlayer(playerName);
+            Player heroe = GetPlayer(playerName);
 
             renderer.Clear();
 
             map = PopulateMap();
 
-            PrintMap(PopulateMap(), heroe as Player);
+            PrintMap(PopulateMap(), heroe);
             DrowStaticInfo(heroe);
       
             while (this.IsRun)
@@ -92,7 +92,7 @@ namespace StarWars.Engine
                     {
 
                     }
-                    PrintMap(map, heroe as Player);
+                    PrintMap(map, heroe);
                     DrowStaticInfo(heroe);
                     bool isEnemy = enemies.Any(x => x.Position.X == heroe.Position.X && x.Position.Y == heroe.Position.Y);
                     if (isEnemy)
@@ -100,10 +100,10 @@ namespace StarWars.Engine
                         renderer.Clear();
                         Console.WriteLine("Battle mode");
                         var enemy = enemies.Find(x => x.Position.X == heroe.Position.X && x.Position.Y == heroe.Position.Y);
-                        Fight(heroe as Player, enemy);
+                        Fight(heroe, enemy);
                     }
 
-                    if ((heroe as Player).Symbol == ' ')
+                    if ((heroe).Symbol == ' ')
                     {
                         renderer.Clear();
                         renderer.WriteLine("Game over");
@@ -159,7 +159,7 @@ namespace StarWars.Engine
             this.renderer.WriteLine(str);
 
         }
-        private IPlayer GetPlayer(string name)
+        private Player GetPlayer(string name)
         {
             this.renderer.WriteLine("Choose your hero");
             this.renderer.WriteLine("1. Battle Droid (damage : 100, health : 100, armor : 30)");
@@ -173,7 +173,7 @@ namespace StarWars.Engine
                 this.renderer.WriteLine("Invalid choice of Heroe");
                 choiceHeroe = this.reader.ReadLine();
             }
-            IPlayer heroe = null;
+           Player heroe = null;
             switch (choiceHeroe)
             {
                 case "1":
