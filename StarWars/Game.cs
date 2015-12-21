@@ -15,12 +15,6 @@ namespace Game
     {
         static void Main(string[] args)
         {
-            Item[] a = { new BactaTank(new Position(3, 3)), new Gloves(new Position(3, 3)) };
-            foreach (Item item in a)
-            {
-                Console.WriteLine(item.ToString());
-            }
-
             ConsoleReader reader = new ConsoleReader();
             CondoleRenderer renderer = new CondoleRenderer();
             StarWarsEngine engine = new StarWarsEngine(reader, renderer);

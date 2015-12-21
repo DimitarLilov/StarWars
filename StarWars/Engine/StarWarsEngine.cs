@@ -2,9 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Runtime.CompilerServices;
 using System.Text;
-using System.Threading.Tasks;
 using StarWars.Characters;
 using StarWars.Characters.Players;
 using StarWars.Contracts;
@@ -13,6 +11,9 @@ using StarWars.Items;
 using StarWars.UI;
 using StarWars.Characters.Enemies;
 using StarWars.Exceptions;
+using StarWars.Items.ArmorSet;
+using StarWars.Items.HealthRestore;
+using StarWars.Items.WeaponType;
 
 namespace StarWars.Engine
 {
@@ -42,7 +43,6 @@ namespace StarWars.Engine
         };
 
         private readonly List<Character> enemies = new List<Character>();
-        private readonly IList<Item> items;
         private Player player;
 
 
@@ -51,7 +51,6 @@ namespace StarWars.Engine
             this.renderer = renderer;
             this.reader = reader;
             this.enemies = MakeEnemy();
-            this.items = new List<Item>();
         }
 
         public bool IsRun { get; private set; }
@@ -70,7 +69,7 @@ namespace StarWars.Engine
 
             PrintMap(PopulateMap(), heroe);
             DrowStaticInfo(heroe);
-      
+
             while (this.IsRun)
             {
                 if (Console.KeyAvailable)
@@ -96,14 +95,28 @@ namespace StarWars.Engine
                     PrintMap(map, heroe);
                     DrowStaticInfo(heroe);
                     bool isEnemy = enemies.Any(x => x.Position.X == heroe.Position.X && x.Position.Y == heroe.Position.Y);
-                    if (isEnemy)
+                    bool isHospital = (map[heroe.Position.X, heroe.Position.Y] == 'H');
+                    bool isArmory = (map[heroe.Position.X, heroe.Position.Y] == 'W');
+                    bool isForgery = (map[heroe.Position.X, heroe.Position.Y] == 'W');
+                    if (isHospital)
+                    {
+                        heroe.UseItem(new BactaTank(heroe.Position));
+                    }
+                    else if (isArmory)
+                    {
+                        heroe.UseItem(new LaserSword(heroe.Position));
+                    }
+                    else if (isForgery)
+                    {
+                        heroe.UseItem(new Chest(heroe.Position));
+                    }
+                   else if (isEnemy)
                     {
                         renderer.Clear();
                         Console.WriteLine("Battle mode");
                         var enemy = enemies.Find(x => x.Position.X == heroe.Position.X && x.Position.Y == heroe.Position.Y);
                         Fight(heroe, enemy);
                     }
-
                     if ((heroe).Symbol == ' ')
                     {
                         renderer.Clear();
@@ -116,11 +129,11 @@ namespace StarWars.Engine
                         renderer.WriteLine("You won!");
                         break;
                     }
-                      
+
                 }
             }
         }
-        private void Fight (Player heroe, Character enemy)
+        private void Fight(Player heroe, Character enemy)
         {
             while (true)
             {
@@ -142,7 +155,6 @@ namespace StarWars.Engine
                 }
             }
         }
-
         private void DrowStaticInfo(IPlayer player)
         {
             DrowInfo(46, 1, "Player Name: " + player.Name);
@@ -177,7 +189,7 @@ namespace StarWars.Engine
                 this.renderer.WriteLine("Invalid choice of Heroe");
                 choiceHeroe = this.reader.ReadLine();
             }
-           Player heroe = null;
+            Player heroe = null;
             switch (choiceHeroe)
             {
                 case "1":
@@ -207,10 +219,7 @@ namespace StarWars.Engine
             }
             return playerName;
         }
-
-
-
-        private void PrintLogo()
+         private void PrintLogo()
         {
             string logo = File.ReadAllText("logo.txt");
 
@@ -221,6 +230,9 @@ namespace StarWars.Engine
         {
             map = PopulateMap();
             map[player.Position.X, player.Position.Y] = player.Symbol;
+            map[1,1] = 'H';
+            map[0, 1] = 'C';
+            map[1, 0] = 'W';
             StringBuilder builder = new StringBuilder();
             for (int row = 0; row < map.GetLength(0); row++)
             {
@@ -261,7 +273,7 @@ namespace StarWars.Engine
             for (int i = 0; i < enemiesNumber; i++)
             {
                 string enemyName = enemyNames[random.Next(0, enemyNames.Length)];
-                Position enemyPosition = new Position(random.Next(1, mapHeight), random.Next(1, mapWidth));
+                Position enemyPosition = new Position(random.Next(3, mapHeight), random.Next(2, mapWidth));
                 bool isEmpty = CheckPosition(enemyPosition);
                 while (isEmpty == false)
                 {
