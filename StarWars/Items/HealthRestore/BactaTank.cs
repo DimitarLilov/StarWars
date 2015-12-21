@@ -13,5 +13,9 @@ namespace StarWars.Items.HealthRestore
         public BactaTank(Position position, char symbol) : base(position, symbol, BactaTankHealthRestore)
         {
         }
+        public override string ToString()
+        {
+            return "BactaTank";
+        }
     }
 }

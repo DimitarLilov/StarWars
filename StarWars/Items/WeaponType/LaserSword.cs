@@ -13,5 +13,11 @@ namespace StarWars.Items.WeaponType
         public LaserSword(Position position, char symbol) : base(position, symbol, LaserSwordDamageRestore)
         {
         }
+
+        public override string ToString()
+        {
+            return "LaserSword";
+        }
+
     }
 }

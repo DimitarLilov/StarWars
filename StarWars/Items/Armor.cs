@@ -29,5 +29,12 @@ namespace StarWars.Items
                 this.armorRestore = value;
             }
         }
+
+
+        public override string ToString()
+        {
+            return "Armor";
+        }
+
     }
 }

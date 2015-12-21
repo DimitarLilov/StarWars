@@ -23,11 +23,11 @@ namespace StarWars.Characters
             this.Armor = armor;
         }
 
-        protected int Armor { get; set; }
+        public int Armor { get; protected set; }
         
-        public int Damage { get; }
+        public int Damage { get; protected set; }
 
-        public int Health { get; private set; }
+        public int Health { get; protected set; }
 
         public string Name
         {

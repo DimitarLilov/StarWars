@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using StarWars.Contracts;
 using StarWars.GameObject;
 using StarWars.Items;
-
+using StarWars.Items.HealthRestore;
+using StarWars.Items.ArmorSet;
+using StarWars.Items.WeaponType;
 namespace StarWars.Characters
 {
     public abstract class Player : Character, IPlayer
@@ -25,11 +27,37 @@ namespace StarWars.Characters
         {
 
         }
-        
-        public void AddItem(Item item)
-        {
 
+        public void UseItem(Item item)
+        {
+            switch (item.ToString())
+            {
+                case "BactaTank":
+                    Heal(item as BactaTank);
+                    break;
+                case "LaserSword":
+                    AddDamage(item as LaserSword);
+                    break;
+                case "Armor":
+                    AddArmor(item as Armor);
+                    break;
+            }
         }
+        private void AddArmor(Armor a)
+        {
+            this.Armor += a.ArmorRestore;
+        }
+
+        private void AddDamage(LaserSword ls)
+        {
+            this.Damage += ls.DamageRestore;
+        }
+
+        private void Heal(BactaTank bt)
+        {
+            this.Health += bt.HealthRestore;
+        }
+
 
         public void Move(ConsoleKeyInfo pressedKey)
         {
