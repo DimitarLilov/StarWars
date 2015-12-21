@@ -28,6 +28,7 @@ namespace StarWars.Characters
             if (Experience >= 100)
             {
                 Level++;
+                Experience = 0;
             }
 
         }

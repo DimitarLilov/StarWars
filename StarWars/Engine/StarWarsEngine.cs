@@ -130,6 +130,7 @@ namespace StarWars.Engine
                     enemy.Symbol = '.';
                     enemies.Remove(enemy);
                     heroe.Experience += Exp;
+                    heroe.LevelUP();
                     renderer.WriteLine("{0} is dead", enemy.Name);
                     break;
                 }
