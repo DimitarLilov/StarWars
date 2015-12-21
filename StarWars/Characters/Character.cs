@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using StarWars.Contracts;
-using StarWars.GameObject;
 using StarWars.UI;
 
 namespace StarWars.Characters
@@ -23,7 +18,7 @@ namespace StarWars.Characters
             this.Armor = armor;
         }
 
-        public int Armor { get; protected set; }
+        public int Armor { get;  set; }
         
         public int Damage { get; protected set; }
 

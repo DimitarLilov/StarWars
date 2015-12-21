@@ -1,27 +1,24 @@
 ﻿using System;
-using System.Collections.Generic;
 using StarWars.Contracts;
 using StarWars.GameObject;
 using StarWars.Items;
 using StarWars.Items.HealthRestore;
-using StarWars.Items.ArmorSet;
 using StarWars.Items.WeaponType;
 namespace StarWars.Characters
 {
     public abstract class Player : Character, IPlayer
     {
+        private const int TargetHealth = 500;
+        private const int TargetDamage = 500;
+        private const int TargetArmor = 500;
         public Player(Position position, char symbol, int damage, int health, string name,int level,int armor) : base(position, symbol, damage, health, name, armor)
         {
             this.Level = level;
         }
 
-        
-       
         public int Experience { get; set; }
         public int Level { get; set; }
-        public int Armor { get; set; }
 
-       
 
         public void LevelUP()
         {
@@ -52,17 +49,28 @@ namespace StarWars.Characters
         }
         private void AddArmor(Armor a)
         {
-            this.Armor += a.ArmorRestore;
+            if (Armor < TargetArmor)
+            {
+                this.Armor += a.ArmorRestore;
+            }            
         }
 
         private void AddDamage(LaserSword ls)
         {
-            this.Damage += ls.DamageRestore;
+            if (Damage < TargetDamage)
+            {
+                this.Damage += ls.DamageRestore;
+            }
+            
         }
 
         private void Heal(BactaTank bt)
         {
-            this.Health += bt.HealthRestore;
+            if (Health < TargetHealth)
+            {
+                this.Health += bt.HealthRestore;
+            }
+            
         }
 
 

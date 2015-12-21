@@ -155,7 +155,7 @@ namespace StarWars.Engine
                 }
             }
         }
-        private void DrowStaticInfo(IPlayer player)
+        private void DrowStaticInfo(Player player)
         {
             DrowInfo(46, 1, "Player Name: " + player.Name);
             DrowInfo(46, 2, "Level: " + player.Level);
@@ -163,10 +163,13 @@ namespace StarWars.Engine
             DrowInfo(46, 4, "Health: " + player.Health);
             DrowInfo(46, 5, "Damage: " + player.Damage);
             DrowInfo(46, 6, "Armor: " + player.Armor);
-            DrowInfo(46, 8, "T- Storm Trooper (Damage: 100 Health: 100)");
-            DrowInfo(46, 9, "B- Bounty Hunter (Damage: 200 Health: 200)");
-            DrowInfo(46, 10, "A- Sith Apprentice (Damage: 300 Health: 300)");
-            DrowInfo(46, 11, "S- Sith (Damage: 400 Health: 400)");
+            DrowInfo(46, 8, "H- Hospital (+50 Health)");
+            DrowInfo(46, 9, "W- Blacksmith (+30 Damage)");
+            DrowInfo(46, 11, "T- Storm Trooper (Damage: 100 Health: 100)");
+            DrowInfo(46, 12, "B- Bounty Hunter (Damage: 250 Health: 200)");
+            DrowInfo(46, 13, "A- Sith Apprentice (Damage: 350 Health: 300)");
+            DrowInfo(46, 14, "S- Sith (Damage: 600 Health: 500)");
+
 
         }
         private void DrowInfo(int x, int y, string str)
@@ -219,7 +222,7 @@ namespace StarWars.Engine
             }
             return playerName;
         }
-         private void PrintLogo()
+        private void PrintLogo()
         {
             string logo = File.ReadAllText("logo.txt");
 
@@ -231,7 +234,6 @@ namespace StarWars.Engine
             map = PopulateMap();
             map[player.Position.X, player.Position.Y] = player.Symbol;
             map[1,1] = 'H';
-            map[0, 1] = 'C';
             map[1, 0] = 'W';
             StringBuilder builder = new StringBuilder();
             for (int row = 0; row < map.GetLength(0); row++)

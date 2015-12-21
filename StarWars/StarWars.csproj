@@ -56,15 +56,11 @@
     <Compile Include="Characters\Players\Rebel.cs" />
     <Compile Include="Contracts\IAttack.cs" />
     <Compile Include="Contracts\ICharacter.cs" />
-    <Compile Include="Contracts\ICollect.cs" />
     <Compile Include="Contracts\IDestroyable.cs" />
-    <Compile Include="Contracts\IEffectable.cs" />
-    <Compile Include="Contracts\IHeal.cs" />
     <Compile Include="Contracts\IMovable.cs" />
     <Compile Include="Contracts\IPlayer.cs" />
     <Compile Include="Engine\StarWarsEngine.cs" />
     <Compile Include="Engine\Map.cs" />
-    <Compile Include="Exceptions\GameExeption.cs" />
     <Compile Include="Exceptions\ObjectOutOfMap.cs" />
     <Compile Include="GameObject\GameObject.cs" />
     <Compile Include="GameObject\Position.cs" />
@@ -86,9 +82,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="ClassDiagram1.cd" />
-    <None Include="ClassDiagram2.cd" />
-    <None Include="ClassDiagram4.cd" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
