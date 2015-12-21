@@ -17,7 +17,7 @@ namespace StarWars.Characters
 
         
        
-        public int Experience { get; private set; }
+        public int Experience { get; set; }
         public int Level { get; set; }
         public int Armor { get; set; }
 
@@ -25,6 +25,10 @@ namespace StarWars.Characters
 
         public void LevelUP()
         {
+            if (Experience >= 100)
+            {
+                Level++;
+            }
 
         }
 

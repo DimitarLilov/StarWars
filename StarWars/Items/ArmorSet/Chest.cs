@@ -10,7 +10,7 @@ namespace StarWars.Items.ArmorSet
     public class Chest: Armor
     {
         private const int ChestArmorRestore = 7;
-        public Chest(Position position, char symbol) : base(position, symbol, ChestArmorRestore)
+        public Chest(Position position) : base(position,  ChestArmorRestore)
         {
         }
     }

@@ -10,7 +10,7 @@ namespace StarWars.Items.WeaponType
     public class LaserSword : Weapon
     {
         private const int LaserSwordDamageRestore = 30;
-        public LaserSword(Position position, char symbol) : base(position, symbol, LaserSwordDamageRestore)
+        public LaserSword(Position position) : base(position, LaserSwordDamageRestore)
         {
         }
 

@@ -10,7 +10,7 @@ namespace StarWars.Items.ArmorSet
     public class Pants : Armor
     {
         private const int PantsArmorRestore = 12;
-        public Pants(Position position, char symbol) : base(position, symbol, PantsArmorRestore)
+        public Pants(Position position) : base(position, PantsArmorRestore)
         {
         }
     }

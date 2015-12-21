@@ -15,7 +15,7 @@ namespace Game
     {
         static void Main(string[] args)
         {
-            Item[] a = { new BactaTank(new Position(3, 3), 'A'), new Gloves(new Position(3, 3), 'c') };
+            Item[] a = { new BactaTank(new Position(3, 3)), new Gloves(new Position(3, 3)) };
             foreach (Item item in a)
             {
                 Console.WriteLine(item.ToString());

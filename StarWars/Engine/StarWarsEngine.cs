@@ -20,6 +20,7 @@ namespace StarWars.Engine
     {
         public const int mapHeight = 15;
         public const int mapWidth = 45;
+        private const int Exp = 25;
 
         private const int enemiesNumber = 25;
         private static Random random = new Random();
@@ -128,6 +129,7 @@ namespace StarWars.Engine
                 {
                     enemy.Symbol = '.';
                     enemies.Remove(enemy);
+                    heroe.Experience += Exp;
                     renderer.WriteLine("{0} is dead", enemy.Name);
                     break;
                 }
@@ -144,9 +146,10 @@ namespace StarWars.Engine
         {
             DrowInfo(46, 1, "Player Name: " + player.Name);
             DrowInfo(46, 2, "Level: " + player.Level);
-            DrowInfo(46, 3, "Health: " + player.Health);
-            DrowInfo(46, 4, "Damage: " + player.Damage);
-            DrowInfo(46, 5, "Damage: " + player.Armor);
+            DrowInfo(46, 3, "Experience: " + player.Experience);
+            DrowInfo(46, 4, "Health: " + player.Health);
+            DrowInfo(46, 5, "Damage: " + player.Damage);
+            DrowInfo(46, 6, "Armor: " + player.Armor);
             DrowInfo(46, 8, "T- Storm Trooper (Damage: 100 Health: 100)");
             DrowInfo(46, 9, "B- Bounty Hunter (Damage: 200 Health: 200)");
             DrowInfo(46, 10, "A- Sith Apprentice (Damage: 300 Health: 300)");

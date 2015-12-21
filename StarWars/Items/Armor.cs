@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using StarWars.GameObject;
@@ -10,7 +11,8 @@ namespace StarWars.Items
     public abstract class Armor: Item
     {
         private int armorRestore;
-        public Armor(Position position, char symbol, int armorRestore) : base(position, symbol)
+        private const char SymbolArmor = 'A'; 
+        public Armor(Position position, int armorRestore) : base(position, SymbolArmor)
         {
         }
 

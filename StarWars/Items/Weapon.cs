@@ -10,7 +10,8 @@ namespace StarWars.Items
     public abstract class Weapon : Item
     {
         private int damageRestore;
-        public Weapon(Position position, char symbol, int damageRestore) : base(position, symbol)
+        private const char SymbolWeapon = 'W';
+        public Weapon(Position position, int damageRestore) : base(position, SymbolWeapon)
         {
             this.DamageRestore = damageRestore;
         }

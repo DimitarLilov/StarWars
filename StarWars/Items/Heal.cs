@@ -10,8 +10,8 @@ namespace StarWars.Items
     public abstract class Heal : Item
     {
         private int healthRestore;
-
-        public Heal(Position position, char symbol, int healthRestore) : base(position, symbol)
+        private const char SymbolHeal = 'H';
+        public Heal(Position position, int healthRestore) : base(position, SymbolHeal)
         {
             this.HealthRestore = healthRestore;
         }
