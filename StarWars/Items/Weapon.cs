@@ -3,19 +3,33 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using StarWars.GameObject;
 
 namespace StarWars.Items
 {
-    public abstract class Weapon
+    public abstract class Weapon : Item
     {
-        private int weaponDamage;
-
-        public int WeaponDamage 
+        private int damageRestore;
+        public Weapon(Position position, char symbol, int damageRestore) : base(position, symbol)
         {
-            get { return this.weaponDamage; }
-            set { this.weaponDamage = value; } 
+            this.DamageRestore = damageRestore;
         }
 
-        public WeaponTypes WeaponType { get; set; }
+        public int DamageRestore
+        {
+            get
+            {
+                return this.damageRestore;
+
+            }
+            set
+            {
+                if (value < 0)
+                {
+                    throw new ArgumentOutOfRangeException("Damage restore cannot be negative.");
+                }
+                this.damageRestore = value;
+            }
+        }
     }
 }

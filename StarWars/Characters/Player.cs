@@ -13,12 +13,7 @@ namespace StarWars.Characters
             this.Level = level;
         }
 
-        public void CollectItem(ICollectible item)
-        {
-          
-        }
-
-        IEnumerable<ICollectible> ICollect.Inventory { get; }
+        
        
         public int Experience { get; private set; }
         public int Level { get; set; }

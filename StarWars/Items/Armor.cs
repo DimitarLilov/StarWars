@@ -7,20 +7,27 @@ using StarWars.GameObject;
 
 namespace StarWars.Items
 {
-    public class Armor : StatItem
+    public abstract class Armor: Item
     {
-        private int armorProtection;
-
-        private int ArmorProtection
+        private int armorRestore;
+        public Armor(Position position, char symbol, int armorRestore) : base(position, symbol)
         {
-            get { return this.armorProtection; }
-            set { this.armorProtection = value; }
         }
 
-        public ArmorTypes ArmorType { get; set; }
-
-        public Armor(Position position, char symbol) : base(position, symbol)
-        {
+        public int ArmorRestore {
+            get
+            {
+                return this.armorRestore;
+                
+            }
+            set
+            {
+                if (value < 0)
+                {
+                    throw new ArgumentOutOfRangeException("Armor restore cannot be negative.");
+                }
+                this.armorRestore = value;
+            }
         }
     }
 }
