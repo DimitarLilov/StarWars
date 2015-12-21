@@ -9,7 +9,7 @@ namespace StarWars.Items.ArmorSet
 {
     public class Helmet : Armor
     {
-        private const int HelmetArmorRestore = 10;
+        private const int HelmetArmorRestore = 15;
         public Helmet(Position position, char symbol) : base(position, symbol, HelmetArmorRestore)
         {
         }
