@@ -15,6 +15,7 @@ namespace Game
     {
         static void Main(string[] args)
         {
+            Console.Title = "STAR WARS";
             ConsoleReader reader = new ConsoleReader();
             CondoleRenderer renderer = new CondoleRenderer();
             StarWarsEngine engine = new StarWarsEngine(reader, renderer);

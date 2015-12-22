@@ -13,3 +13,9 @@ D:\Alex\SoftUni\Game\StarWars\StarWars\bin\Debug\StarWars.pdb
 D:\Alex\SoftUni\Game\StarWars\StarWars\obj\Debug\StarWars.csprojResolveAssemblyReference.cache
 D:\Alex\SoftUni\Game\StarWars\StarWars\obj\Debug\StarWars.exe
 D:\Alex\SoftUni\Game\StarWars\StarWars\obj\Debug\StarWars.pdb
+C:\SoftUni\Object Oriented Programming\Teamwork\StarWars\bin\Debug\StarWars.exe.config
+C:\SoftUni\Object Oriented Programming\Teamwork\StarWars\obj\Debug\StarWars.exe
+C:\SoftUni\Object Oriented Programming\Teamwork\StarWars\obj\Debug\StarWars.pdb
+C:\SoftUni\Object Oriented Programming\Teamwork\StarWars\bin\Debug\StarWars.exe
+C:\SoftUni\Object Oriented Programming\Teamwork\StarWars\bin\Debug\StarWars.pdb
+C:\SoftUni\Object Oriented Programming\Teamwork\StarWars\obj\Debug\StarWars.csprojResolveAssemblyReference.cache

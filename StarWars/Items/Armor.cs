@@ -3,7 +3,7 @@ using StarWars.GameObject;
 
 namespace StarWars.Items
 {
-    public class Armor: Item
+    public abstract class Armor: Item
     {
         private int armorRestore;
         private const char SymbolArmor = 'C'; 
